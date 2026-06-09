@@ -1,127 +1,123 @@
 <div class="login-wrapper">
 
-  <!-- Panel izquierdo -->
-  <div class="left-panel">
-    <div class="brand">
-      <div class="brand-icon">
-        <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect width="28" height="28" rx="6" fill="white" fill-opacity="0.15"/>
-          <path d="M14 5C9.03 5 5 9.03 5 14C5 18.97 9.03 23 14 23C18.97 23 23 18.97 23 14C23 9.03 18.97 5 14 5ZM17 15H15V17C15 17.55 14.55 18 14 18C13.45 18 13 17.55 13 17V15H11C10.45 15 10 14.55 10 14C10 13.45 10.45 13 11 13H13V11C13 10.45 13.45 10 14 10C14.55 10 15 10.45 15 11V13H17C17.55 13 18 13.45 18 14C18 14.55 17.55 15 17 15Z" fill="white"/>
-        </svg>
-      </div>
-      <div class="brand-text">
-        <span class="brand-name">SmartCita</span>
-        <span class="brand-subtitle">SISTEMA MÉDICO ERP</span>
-      </div>
-    </div>
-
-    <div class="hero-content">
-      <h1 class="hero-title">
-        Gestión médica<br>
-        <span class="hero-accent">inteligente y eficiente</span>
-      </h1>
-      <p class="hero-description">
-        Plataforma administrativa para consultorios médicos.<br>
-        Control total de citas, pacientes y médicos en un solo lugar.
-      </p>
-    </div>
-
-    <div class="stats-grid">
-      <mat-card class="stat-card">
-        <mat-card-content>
-          <span class="stat-value">2,400+</span>
-          <span class="stat-label">Pacientes</span>
-        </mat-card-content>
-      </mat-card>
-      <mat-card class="stat-card">
-        <mat-card-content>
-          <span class="stat-value">98%</span>
-          <span class="stat-label">Satisfacción</span>
-        </mat-card-content>
-      </mat-card>
-      <mat-card class="stat-card">
-        <mat-card-content>
-          <span class="stat-value">15 min</span>
-          <span class="stat-label">Ahorro/cita</span>
-        </mat-card-content>
-      </mat-card>
-    </div>
-
-    <div class="system-status">
-      <span class="status-dot"></span>
-      <span class="status-text">Sistema operativo — v3.2.1</span>
-    </div>
-  </div>
-
-  <!-- Panel derecho -->
-  <div class="right-panel">
-    <mat-card class="login-box">
-      <mat-card-content>
-
-        <div class="login-header">
-          <h2 class="login-title">Iniciar sesión</h2>
-          <p class="login-subtitle">Ingrese sus credenciales para acceder al sistema</p>
+    <div class="left-panel">
+        <div class="brand">
+        <div class="brand-icon">
+            <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="28" height="28" rx="6" fill="white" fill-opacity="0.15"/>
+            <path d="M14 5C9.03 5 5 9.03 5 14C5 18.97 9.03 23 14 23C18.97 23 23 18.97 23 14C23 9.03 18.97 5 14 5ZM17 15H15V17C15 17.55 14.55 18 14 18C13.45 18 13 17.55 13 17V15H11C10.45 15 10 14.55 10 14C10 13.45 10.45 13 11 13H13V11C13 10.45 13.45 10 14 10C14.55 10 15 10.45 15 11V13H17C17.55 13 18 13.45 18 14C18 14.55 17.55 15 17 15Z" fill="white"/>
+            </svg>
+        </div>
+        <div class="brand-text">
+            <span class="brand-name">SmartCita</span>
+            <span class="brand-subtitle">SISTEMA MÉDICO ERP</span>
+        </div>
         </div>
 
-        <form (ngSubmit)="onSubmit()" #loginForm="ngForm" novalidate>
-
-          <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Usuario (Email o DNI)</mat-label>
-            <input matInput
-              placeholder="usuario@clinica.com o 12345678"
-              [(ngModel)]="usuario"
-              name="usuario"
-              autocomplete="username" />
-          </mat-form-field>
-
-          <mat-form-field appearance="outline" class="full-width">
-            <mat-label>Contraseña</mat-label>
-            <input matInput
-              [type]="showPassword ? 'text' : 'password'"
-              placeholder="••••••••"
-              [(ngModel)]="password"
-              name="password"
-              autocomplete="current-password" />
-            <button mat-icon-button matSuffix type="button"
-              (click)="togglePassword()" tabindex="-1"
-              [attr.aria-label]="showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'">
-              <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-            </button>
-          </mat-form-field>
-
-          <button mat-flat-button class="btn-submit" type="submit">
-            Ingresar al sistema
-          </button>
-
-        </form>
-
-        <div class="forgot-password">
-          <a mat-button color="primary" href="#" (click)="$event.preventDefault()">
-            ¿Olvidó su contraseña?
-          </a>
+        <div class="hero-content">
+        <h1 class="hero-title">
+            Gestión médica<br>
+            <span class="hero-accent">inteligente y eficiente</span>
+        </h1>
+        <p class="hero-description">
+            Plataforma administrativa para consultorios médicos.<br>
+            Control total de citas, pacientes y médicos en un solo lugar.
+        </p>
         </div>
 
-        <mat-card class="demo-accounts">
-          <mat-card-content>
-            <p class="demo-title">Cuentas de demostración:</p>
-            <p *ngFor="let account of demoAccounts" class="demo-item">
-              <span class="demo-role">{{ account.role }}:</span>
-              <a mat-button color="primary" class="demo-email"
-                href="#"
-                (click)="$event.preventDefault(); fillDemo(account.email)">
-                {{ account.email }}
-              </a>
-            </p>
-          </mat-card-content>
+        <div class="stats-grid">
+        <mat-card class="stat-card">
+            <mat-card-content>
+            <span class="stat-value">2,400+</span>
+            <span class="stat-label">Pacientes</span>
+            </mat-card-content>
         </mat-card>
+        <mat-card class="stat-card">
+            <mat-card-content>
+            <span class="stat-value">98%</span>
+            <span class="stat-label">Satisfacción</span>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="stat-card">
+            <mat-card-content>
+            <span class="stat-value">15 min</span>
+            <span class="stat-label">Ahorro/cita</span>
+            </mat-card-content>
+        </mat-card>
+        </div>
 
-      </mat-card-content>
-    </mat-card>
-  </div>
+        <div class="system-status">
+        <span class="status-dot"></span>
+        <span class="status-text">Sistema operativo — v3.2.1</span>
+        </div>
+    </div>
 
-  <!-- Botón de ayuda -->
-  <button mat-fab class="help-btn" title="Ayuda" color="primary">
-    <mat-icon>help</mat-icon>
-  </button>
+    <div class="right-panel">
+        <mat-card class="login-box">
+        <mat-card-content>
 
+            <div class="login-header">
+            <h2 class="login-title">Iniciar sesión</h2>
+            <p class="login-subtitle">Ingrese sus credenciales para acceder al sistema</p>
+            </div>
+
+            <form (ngSubmit)="onSubmit()" #loginForm="ngForm" novalidate>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Usuario (Email o DNI)</mat-label>
+                <input matInput
+                placeholder="usuario@clinica.com o 12345678"
+                [(ngModel)]="usuario"
+                name="usuario"
+                autocomplete="username" />
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="full-width">
+                <mat-label>Contraseña</mat-label>
+                <input matInput
+                [type]="showPassword ? 'text' : 'password'"
+                placeholder="••••••••"
+                [(ngModel)]="password"
+                name="password"
+                autocomplete="current-password" />
+                <button mat-icon-button matSuffix type="button"
+                (click)="togglePassword()" tabindex="-1"
+                [attr.aria-label]="showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'">
+                <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                </button>
+            </mat-form-field>
+
+            <button mat-flat-button class="btn-submit" type="submit">
+                Ingresar al sistema
+            </button>
+
+            </form>
+
+            <div class="forgot-password">
+            <a mat-button color="primary" href="#" (click)="$event.preventDefault()">
+                ¿Olvidó su contraseña?
+            </a>
+            </div>
+
+            <mat-card class="demo-accounts">
+            <mat-card-content>
+                <p class="demo-title">Cuentas de demostración:</p>
+                <p *ngFor="let account of demoAccounts" class="demo-item">
+                <span class="demo-role">{{ account.role }}:</span>
+                <a mat-button color="primary" class="demo-email"
+                    href="#"
+                    (click)="$event.preventDefault(); fillDemo(account.email)">
+                    {{ account.email }}
+                </a>
+                </p>
+            </mat-card-content>
+            </mat-card>
+
+        </mat-card-content>
+        </mat-card>
+    </div>
+
+    <button mat-fab class="help-btn" title="Ayuda" color="primary">
+        <mat-icon>help</mat-icon>
+    </button>
 </div>
