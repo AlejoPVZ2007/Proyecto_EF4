@@ -3,11 +3,15 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "module": "ES2022",
+    "target": "ES2022",
     "outDir": "./out-tsc/app",
     "rootDir": "./src",
     "types": [
       "node"
-    ]
+    ],
+    "moduleResolution": "bundler"
   },
   "include": [
     "src/**/*.ts"

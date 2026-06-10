@@ -290,7 +290,6 @@
     .left-panel {
         flex: none;
         padding: 28px 24px;
-        min-height: auto;
     }
 
     .hero-content {

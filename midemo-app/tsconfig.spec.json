@@ -5,6 +5,7 @@
   "compilerOptions": {
     "outDir": "./out-tsc/spec",
     "rootDir": "./src/app",
+    "module": "ES2020",
     "types": [
       "vitest/globals"
     ]

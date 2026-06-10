@@ -4,10 +4,14 @@ import {
   isMainModule,
   writeResponseToNodeResponse,
 } from '@angular/ssr/node';
-import express from 'express';
+import express, { Request, Response, NextFunction } from 'express';
 import { join } from 'node:path';
+import fs from 'node:fs';
 
-const browserDistFolder = join(import.meta.dirname, '../browser');
+// Resolve a safe static folder without relying on __filename or import.meta
+const distBrowser = join(process.cwd(), 'dist', 'browser');
+const publicFolder = join(process.cwd(), 'public');
+const browserDistFolder = fs.existsSync(distBrowser) ? distBrowser : publicFolder;
 
 const app = express();
 const angularApp = new AngularNodeAppEngine();
@@ -38,10 +42,10 @@ app.use(
 /**
  * Handle all other requests by rendering the Angular application.
  */
-app.use((req, res, next) => {
+app.use((req: Request, res: Response, next: NextFunction) => {
   angularApp
     .handle(req)
-    .then((response) =>
+    .then((response: any) =>
       response ? writeResponseToNodeResponse(response, res) : next(),
     )
     .catch(next);
@@ -51,9 +55,10 @@ app.use((req, res, next) => {
  * Start the server if this module is the main entry point, or it is ran via PM2.
  * The server listens on the port defined by the `PORT` environment variable, or defaults to 4000.
  */
-if (isMainModule(import.meta.url) || process.env['pm_id']) {
+// Start the server when running directly (guard require for ESM environments)
+if (isMainModule(import.meta.url)) {
   const port = process.env['PORT'] || 4000;
-  app.listen(port, (error) => {
+  app.listen(port, (error?: Error) => {
     if (error) {
       throw error;
     }
