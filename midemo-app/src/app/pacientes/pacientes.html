@@ -1,0 +1,176 @@
+<app-navbar></app-navbar>
+
+<div class="content">
+
+    <div class="page-header">
+
+        <div>
+        <h1>Pacientes</h1>
+        <p>Gestión de pacientes registrados</p>
+        </div>
+
+        <button mat-raised-button color="primary">
+        <mat-icon>add</mat-icon>
+        Nuevo paciente
+        </button>
+
+    </div>
+
+    <!-- filtros -->
+
+    <div class="filters">
+
+        <mat-form-field appearance="outline" class="search">
+        <mat-icon matPrefix>search</mat-icon>
+        <input
+            matInput
+            placeholder="Buscar por nombre, DNI o email..."
+        >
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+        <mat-select placeholder="Estado">
+            <mat-option value="">Todos los estados</mat-option>
+            <mat-option value="activo">Activo</mat-option>
+            <mat-option value="inactivo">Inactivo</mat-option>
+        </mat-select>
+        </mat-form-field>
+
+    </div>
+
+    <!-- resumen -->
+
+    <div class="stats">
+
+        <span class="blue">7 Total</span>
+
+        <span class="green">5 Activos</span>
+
+        <span class="red">2 Inactivos</span>
+
+        <span class="gray">7 Resultados</span>
+
+    </div>
+
+    <!-- tabla -->
+
+    <mat-card class="table-card">
+
+        <table
+        mat-table
+        [dataSource]="pacientes">
+
+        <!-- ID -->
+
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef>ID</th>
+            <td mat-cell *matCellDef="let p">
+            {{p.id}}
+            </td>
+        </ng-container>
+
+        <!-- Paciente -->
+
+        <ng-container matColumnDef="paciente">
+            <th mat-header-cell *matHeaderCellDef>PACIENTE</th>
+
+            <td mat-cell *matCellDef="let p">
+
+            <div class="patient-info">
+
+                <div class="avatar">
+                {{p.nombre.charAt(0)}}
+                </div>
+
+                <div>
+                <strong>{{p.nombre}}</strong>
+                <small>{{p.correo}}</small>
+                </div>
+
+            </div>
+
+            </td>
+        </ng-container>
+
+        <!-- DNI -->
+
+        <ng-container matColumnDef="dni">
+            <th mat-header-cell *matHeaderCellDef>DNI</th>
+            <td mat-cell *matCellDef="let p">{{p.dni}}</td>
+        </ng-container>
+
+        <!-- Telefono -->
+
+        <ng-container matColumnDef="telefono">
+            <th mat-header-cell *matHeaderCellDef>TELÉFONO</th>
+            <td mat-cell *matCellDef="let p">{{p.telefono}}</td>
+        </ng-container>
+
+        <!-- Estado -->
+
+        <ng-container matColumnDef="estado">
+            <th mat-header-cell *matHeaderCellDef>ESTADO</th>
+
+            <td mat-cell *matCellDef="let p">
+
+            <span
+                class="status"
+                [class.inactive]="p.estado === 'Inactivo'">
+
+                {{p.estado}}
+
+            </span>
+
+            </td>
+
+        </ng-container>
+
+        <!-- Citas -->
+
+        <ng-container matColumnDef="citas">
+            <th mat-header-cell *matHeaderCellDef>CITAS</th>
+            <td mat-cell *matCellDef="let p">{{p.citas}}</td>
+        </ng-container>
+
+        <!-- Visita -->
+
+        <ng-container matColumnDef="ultimaVisita">
+            <th mat-header-cell *matHeaderCellDef>ÚLTIMA VISITA</th>
+            <td mat-cell *matCellDef="let p">{{p.visita}}</td>
+        </ng-container>
+
+        <!-- Acciones -->
+
+        <ng-container matColumnDef="acciones">
+
+            <th mat-header-cell *matHeaderCellDef>
+            ACCIONES
+            </th>
+
+            <td mat-cell *matCellDef="let p">
+
+            <button mat-icon-button>
+                <mat-icon>visibility</mat-icon>
+            </button>
+
+            <button mat-icon-button>
+                <mat-icon>edit</mat-icon>
+            </button>
+
+            <button mat-icon-button>
+                <mat-icon>delete</mat-icon>
+            </button>
+
+            </td>
+
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        </table>
+
+    </mat-card>
+
+</div>
