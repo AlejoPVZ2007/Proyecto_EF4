@@ -310,3 +310,6 @@ mat-list-item:last-child {
     height: 220px;
     width: 100%;
 }
+.chart-content {
+    height: 320px;
+}
