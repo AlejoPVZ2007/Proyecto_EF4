@@ -1,0 +1,264 @@
+<app-navbar></app-navbar>
+
+<div class="content">
+    <div class="header">
+
+        <div>
+            <h1>Dashboard</h1>
+            <p>Resumen general del sistema</p>
+        </div>
+
+        <div class="header-right">
+            <mat-form-field appearance="outline" class="search-field">
+                <mat-icon matPrefix>search</mat-icon>
+                <input matInput placeholder="Buscar paciente, médico, cita">
+            </mat-form-field>
+
+            <button mat-icon-button>
+                <mat-icon>notifications_none</mat-icon>
+            </button>
+
+            <div class="user-profile">
+                <div class="avatar">
+                    A
+                </div>
+
+                <div class="user-data">
+                    <span class="name">Admin García</span>
+                    <span class="role">Admin</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="stats-grid">
+        <mat-card class="stat-card">
+            <mat-card-content>
+                <div class="stat-header">
+                    <div>
+                        <span class="stat-title">
+                            TOTAL PACIENTES
+                        </span>
+
+                        <h2>2,418</h2>
+
+                        <div class="stat-footer">
+                            <span class="success">
+                                +12%
+                            </span>
+
+                            <small>vs mes anterior</small>
+                        </div>
+                    </div>
+
+                    <div class="icon-circle blue">
+                        <mat-icon>groups</mat-icon>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="stat-card">
+            <mat-card-content>
+                <div class="stat-header">
+                    <div>
+                        <span class="stat-title">
+                            CITAS HOY
+                        </span>
+
+                        <h2>24</h2>
+
+                        <div class="stat-footer">
+                            <span class="success">
+                                +3
+                            </span>
+                            <small>pendientes</small>
+                        </div>
+                    </div>
+
+                    <div class="icon-circle green">
+                        <mat-icon>event</mat-icon>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="stat-card">
+            <mat-card-content>
+                <div class="stat-header">
+                    <div>
+                        <span class="stat-title">
+                            CITAS SEMANA
+                        </span>
+
+                        <h2>108</h2>
+
+                        <div class="stat-footer">
+                            <span class="success">
+                                +8%
+                            </span>
+                            <small>vs semana pasada</small>
+                        </div>
+                    </div>
+
+                    <div class="icon-circle purple">
+                        <mat-icon>schedule</mat-icon>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="stat-card">
+            <mat-card-content>
+                <div class="stat-header">
+                    <div>
+                        <span class="stat-title">
+                            MÉDICOS ACTIVOS
+                        </span>
+
+                        <h2>12</h2>
+
+                        <small>1 de licencia</small>
+                    </div>
+
+                    <div class="icon-circle orange">
+                        <mat-icon>medical_services</mat-icon>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="charts-grid">
+        <mat-card class="chart-card">
+            <mat-card-header>
+                <mat-card-title>
+                    Citas de la semana
+                </mat-card-title>
+
+                <mat-card-subtitle>
+                    Citas programadas vs pacientes atendidos
+                </mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content style="height: 320px;">
+            <canvas
+                baseChart
+                [data]="lineChartData"
+                [options]="chartOptions"
+                [type]="lineChartType">
+            </canvas>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card class="chart-card">
+            <mat-card-header>
+                <mat-card-title>
+                    Por especialidad
+                </mat-card-title>
+
+                <mat-card-subtitle>
+                    Distribución de citas
+                </mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content>
+                <div class="donut-container">
+                    <canvas
+                    baseChart
+                    [data]="doughnutChartData"
+                    [options]="doughnutChartOptions"
+                    [type]="doughnutChartType">
+                    </canvas>
+                </div>
+
+                <div class="specialties">
+                    <div class="specialty-item">
+                        <span class="dot blue-dot"></span>
+                        Medicina General
+                        <span>35%</span>
+                    </div>
+
+                    <div class="specialty-item">
+                        <span class="dot green-dot"></span>
+                        Cardiología
+                        <span>20%</span>
+                    </div>
+
+                    <div class="specialty-item">
+                        <span class="dot yellow-dot"></span>
+                        Pediatría
+                        <span>18%</span>
+                    </div>
+
+                    <div class="specialty-item">
+                        <span class="dot purple-dot"></span>
+                        Traumatología
+                        <span>15%</span>
+                    </div>
+
+                    <div class="specialty-item">
+                        <span class="dot gray-dot"></span>
+                        Otros
+                        <span>12%</span>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="bottom-grid">
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    Citas por mes
+                </mat-card-title>
+
+                <mat-card-subtitle>
+                    Confirmadas vs canceladas
+                </mat-card-subtitle>
+            </mat-card-header>
+
+            <mat-card-content style="height: 320px;">
+            <canvas
+                baseChart
+                [data]="barChartData"
+                [options]="chartOptions"
+                [type]="barChartType">
+            </canvas>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card>
+            <mat-card-header>
+                <mat-card-title>
+                    Citas de hoy
+                </mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+                <mat-list>
+                    <mat-list-item>
+                        08:00 - María García
+                    </mat-list-item>
+
+                    <mat-list-item>
+                        09:00 - Carlos Pérez
+                    </mat-list-item>
+
+                    <mat-list-item>
+                        10:30 - Ana López
+                    </mat-list-item>
+
+                    <mat-list-item>
+                        11:00 - Juan Torres
+                    </mat-list-item>
+
+                    <mat-list-item>
+                        14:00 - Rosa Medina
+                    </mat-list-item>
+                </mat-list>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

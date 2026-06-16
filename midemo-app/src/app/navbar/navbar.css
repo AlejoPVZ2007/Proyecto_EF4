@@ -1,0 +1,221 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 280px;
+    height: 100vh;
+
+    background: #1e40af;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 24px 24px 20px;
+}
+
+.logo-icon {
+    font-size: 32px;
+    width: 32px;
+    height: 32px;
+
+    color: white;
+}
+
+.logo-text h3 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.logo-text span {
+    font-size: 12px;
+    color: rgba(255,255,255,.75);
+}
+
+.section-title {
+    padding: 20px 24px 10px;
+
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+
+    color: rgba(255,255,255,.55);
+}
+
+mat-nav-list {
+    padding-top: 0 !important;
+}
+
+mat-nav-list a {
+
+    height: 48px !important;
+
+    margin: 4px 12px;
+
+    border-radius: 10px;
+
+    color: rgba(255,255,255,.85);
+
+    transition: all .25s ease;
+}
+
+mat-nav-list a:hover {
+
+    background: rgba(255,255,255,.08);
+
+    color: white;
+}
+
+.active-link {
+
+    background: rgba(255,255,255,.12);
+
+    color: white !important;
+
+    border-left: 4px solid white;
+}
+
+mat-nav-list mat-icon {
+
+    color: rgba(255,255,255,.85);
+}
+
+.active-link mat-icon {
+    color: white;
+}
+
+mat-nav-list span {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.bottom-section {
+
+    padding: 16px 12px;
+
+    border-top: 1px solid rgba(255,255,255,.1);
+}
+
+.bottom-section a {
+
+    height: 48px !important;
+
+    border-radius: 10px;
+
+    color: rgba(255,255,255,.85);
+
+    transition: .25s;
+}
+
+.bottom-section a:hover {
+
+    background: rgba(255,255,255,.08);
+
+    color: white;
+}
+
+.sidebar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,.15);
+    border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        width: 80px;
+    }
+
+    .logo-text,
+    .section-title,
+    span[matListItemTitle] {
+        display: none;
+    }
+
+    .bottom-section span {
+        display: none;
+    }
+}
+
+mat-nav-list a,
+.bottom-section a {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    padding: 0 16px !important;
+}
+
+mat-nav-list a span,
+.bottom-section a span {
+    white-space: nowrap;
+}
+.menu {
+    display: flex;
+    flex-direction: column;
+    padding: 0 12px;
+}
+
+.menu a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    height: 48px;
+    margin: 4px 0;
+    padding: 0 16px;
+
+    border-radius: 10px;
+    text-decoration: none;
+
+    color: rgba(255,255,255,.85);
+    transition: all .25s ease;
+}
+
+.menu a:hover {
+    background: rgba(255,255,255,.08);
+    color: white;
+}
+
+.menu a mat-icon {
+    color: inherit;
+}
+
+.menu a span {
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.menu .active-link {
+    background: rgba(255,255,255,.12);
+    color: white;
+    border-left: 4px solid white;
+}
+
+.bottom-section a {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    height: 48px;
+    padding: 0 16px;
+
+    border-radius: 10px;
+    text-decoration: none;
+    color: rgba(255,255,255,.85);
+}
