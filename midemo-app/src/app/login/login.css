@@ -177,10 +177,10 @@
     max-width: 420px;
     box-shadow: none !important;
     border: none !important;
+}
 
-    mat-card-content {
-        padding: 0 !important;
-    }
+.login-box mat-card-content {
+    padding: 24px !important;
 }
 
 .login-header {
@@ -315,4 +315,8 @@
     letter-spacing: 0.1px;
     margin-top: 4px;
     border-radius: 8px !important;
+}
+.back-btn {
+    margin-bottom: 16px;
+    padding-left: 0 !important;
 }

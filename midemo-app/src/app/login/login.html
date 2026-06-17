@@ -50,78 +50,127 @@
         <span class="status-text">Sistema operativo — v3.2.1</span>
         </div>
     </div>
+    
+        <div class="right-panel">
+            <mat-card class="login-box" *ngIf="!showForgotPassword">
+            <mat-card-content>
 
-    <div class="right-panel">
-        <mat-card class="login-box">
+                <div class="login-header">
+                <h2 class="login-title">Iniciar sesión</h2>
+                <p class="login-subtitle">Ingrese sus credenciales para acceder al sistema</p>
+                </div>
+
+                <form (ngSubmit)="onSubmit()" #loginForm="ngForm" novalidate>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Usuario (Email o DNI)</mat-label>
+                    <input matInput
+                    placeholder="usuario@clinica.com o 12345678"
+                    [(ngModel)]="usuario"
+                    name="usuario"
+                    autocomplete="username" />
+                </mat-form-field>
+
+                <mat-form-field appearance="outline" class="full-width">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput
+                    [type]="showPassword ? 'text' : 'password'"
+                    placeholder="••••••••"
+                    [(ngModel)]="password"
+                    name="password"
+                    autocomplete="current-password" />
+                    <button mat-icon-button matSuffix type="button"
+                    (click)="togglePassword()" tabindex="-1"
+                    [attr.aria-label]="showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'">
+                    <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+                    </button>
+                </mat-form-field>
+
+                <button
+                    mat-raised-button
+                    color="primary"
+                    type="submit"
+                    class="btn-submit">
+
+                    Ingresar al sistema
+
+                </button>
+
+                </form>
+
+                <div class="forgot-password">
+                <a
+                    mat-button
+                    color="primary"
+                    href="#"
+                    (click)="$event.preventDefault(); openForgotPassword()">
+
+                    ¿Olvidó su contraseña?
+
+                </a>
+                </div>
+
+                <mat-card class="demo-accounts">
+                <mat-card-content>
+                    <p class="demo-title">Cuentas de demostración:</p>
+                    <p *ngFor="let account of demoAccounts" class="demo-item">
+                    <span class="demo-role">{{ account.role }}:</span>
+                    <a mat-button color="primary" class="demo-email"
+                        href="#"
+                        (click)="$event.preventDefault(); fillDemo(account.email)">
+                        {{ account.email }}
+                    </a>
+                    </p>
+                </mat-card-content>
+                </mat-card>
+            </mat-card-content>
+            </mat-card>
+            <mat-card class="login-box" *ngIf="showForgotPassword">
         <mat-card-content>
 
+            <button
+                mat-button
+                color="primary"
+                class="back-btn"
+                (click)="backToLogin()">
+
+                <mat-icon>arrow_back</mat-icon>
+                Volver al inicio de sesión
+
+            </button>
+
             <div class="login-header">
-            <h2 class="login-title">Iniciar sesión</h2>
-            <p class="login-subtitle">Ingrese sus credenciales para acceder al sistema</p>
+                <h2 class="login-title">
+                    Recuperar contraseña
+                </h2>
+
+                <p class="login-subtitle">
+                    Ingrese su correo electrónico para recibir instrucciones.
+                </p>
             </div>
 
-            <form (ngSubmit)="onSubmit()" #loginForm="ngForm" novalidate>
-
             <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Usuario (Email o DNI)</mat-label>
-                <input matInput
-                placeholder="usuario@clinica.com o 12345678"
-                [(ngModel)]="usuario"
-                name="usuario"
-                autocomplete="username" />
-            </mat-form-field>
+                <mat-label>Correo electrónico</mat-label>
 
-            <mat-form-field appearance="outline" class="full-width">
-                <mat-label>Contraseña</mat-label>
-                <input matInput
-                [type]="showPassword ? 'text' : 'password'"
-                placeholder="••••••••"
-                [(ngModel)]="password"
-                name="password"
-                autocomplete="current-password" />
-                <button mat-icon-button matSuffix type="button"
-                (click)="togglePassword()" tabindex="-1"
-                [attr.aria-label]="showPassword ? 'Ocultar contraseña' : 'Mostrar contraseña'">
-                <mat-icon>{{ showPassword ? 'visibility_off' : 'visibility' }}</mat-icon>
-                </button>
+                <input
+                    matInput
+                    placeholder="correo@ejemplo.com">
             </mat-form-field>
 
             <button
                 mat-raised-button
                 color="primary"
-                type="submit"
                 class="btn-submit">
 
-                Ingresar al sistema
+                Enviar enlace
 
             </button>
 
-            </form>
-
-            <div class="forgot-password">
-            <a mat-button color="primary" href="#" (click)="$event.preventDefault()">
-                ¿Olvidó su contraseña?
-            </a>
-            </div>
-
-            <mat-card class="demo-accounts">
-            <mat-card-content>
-                <p class="demo-title">Cuentas de demostración:</p>
-                <p *ngFor="let account of demoAccounts" class="demo-item">
-                <span class="demo-role">{{ account.role }}:</span>
-                <a mat-button color="primary" class="demo-email"
-                    href="#"
-                    (click)="$event.preventDefault(); fillDemo(account.email)">
-                    {{ account.email }}
-                </a>
-                </p>
-            </mat-card-content>
-            </mat-card>
         </mat-card-content>
-        </mat-card>
+    </mat-card>
+        </div>
     </div>
-
+    
     <button mat-fab class="help-btn" title="Ayuda" color="primary">
         <mat-icon>help</mat-icon>
     </button>
-</div>

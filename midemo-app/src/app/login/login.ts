@@ -53,4 +53,13 @@ export class Login {
   togglePassword(): void {
     this.showPassword = !this.showPassword;
   }
+  showForgotPassword = false;
+
+  openForgotPassword() {
+    this.showForgotPassword = true;
+  }
+
+  backToLogin() {
+    this.showForgotPassword = false;
+  }
 }
