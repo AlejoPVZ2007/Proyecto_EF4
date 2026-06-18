@@ -38,7 +38,7 @@ export class Dashboard{
   responsive: true,
   maintainAspectRatio: false
 };
-  // LINEAS
+
   public lineChartData: ChartConfiguration<'line'>['data'] = {
     labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
     datasets: [
@@ -55,7 +55,6 @@ export class Dashboard{
 
   public lineChartType: ChartType = 'line';
 
-  // DONUT
   public doughnutChartData = {
     labels: [
       'Medicina General',
@@ -73,7 +72,7 @@ export class Dashboard{
 
   public doughnutChartType: ChartType = 'doughnut';
 
-  // BARRAS
+
   public barChartData: ChartConfiguration<'bar'>['data'] = {
     labels: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun'],
     datasets: [

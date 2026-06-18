@@ -1,8 +1,6 @@
 <app-navbar></app-navbar>
 
 <div class="content">
-
-  <!-- Filtros de periodo + exportar -->
   <div class="top-bar">
     <mat-button-toggle-group [(ngModel)]="periodoActivo" class="periodo-toggle">
       <mat-button-toggle value="semana">Semana</mat-button-toggle>
@@ -23,13 +21,10 @@
     </div>
   </div>
 
-  <!-- Tabs -->
   <mat-tab-group class="report-tabs" animationDuration="0ms">
 
-    <!-- TAB GENERAL -->
     <mat-tab label="General">
 
-      <!-- KPIs -->
       <div class="kpi-grid">
         <mat-card class="kpi-card">
           <mat-card-content>
@@ -64,7 +59,6 @@
         </mat-card>
       </div>
 
-      <!-- Gráficas fila 1 -->
       <div class="charts-row">
 
         <mat-card class="chart-card">
@@ -89,7 +83,6 @@
 
       </div>
 
-      <!-- Gráfica fila 2 -->
       <mat-card class="chart-card full-width">
         <mat-card-content>
           <h3 class="chart-title">Pacientes vs. citas atendidas</h3>
@@ -113,7 +106,5 @@
         <p>Reporte por especialidad próximamente</p>
       </div>
     </mat-tab>
-
   </mat-tab-group>
-
 </div>
