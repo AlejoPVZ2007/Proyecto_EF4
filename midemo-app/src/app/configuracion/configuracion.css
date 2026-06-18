@@ -1,0 +1,84 @@
+.content {
+  margin-left: 280px;
+  padding: 24px;
+  background: #f5f7fb;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.config-card {
+  border-radius: 12px !important;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06) !important;
+  max-width: 620px;
+}
+
+.card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: #111827;
+  margin: 0 0 2px;
+}
+
+.card-subtitle {
+  font-size: 13px;
+  color: #9ca3af;
+  margin: 0 0 20px;
+}
+
+/* ── Form ──────────────────────────────────────────── */
+.form-group {
+  margin-bottom: 4px;
+}
+
+.form-label {
+  display: block;
+  font-size: 13px;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 4px;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.btn-save {
+  background-color: #1e3a8a !important;
+  color: #ffffff !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  padding: 4px 20px !important;
+  margin-top: 8px;
+}
+
+/* ── Roles ─────────────────────────────────────────── */
+.role-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.role-row:last-child {
+  border-bottom: none;
+}
+
+.role-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.role-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.role-desc {
+  font-size: 13px;
+  color: #9ca3af;
+  margin-top: 2px;
+}
