@@ -25,5 +25,20 @@ export const routes: Routes = [
         path: 'medicos',
         loadComponent: () =>
         import('./medicos/medicos').then(m => m.Medicos)
+    },
+    {
+        path: 'citas',
+        loadComponent: () =>
+        import('./citas/citas').then(m => m.Citas)
+    },
+    {
+        path: 'calendario',
+        loadComponent: () =>
+        import('./calendario/calendario').then(m => m.Calendario)
+    },
+    {
+        path: 'reportes',
+        loadComponent: () =>
+        import('./reportes/reportes').then(m => m.Reportes)
     }
 ];

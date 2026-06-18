@@ -1,1 +1,119 @@
-<p>reportes works!</p>
+<app-navbar></app-navbar>
+
+<div class="content">
+
+  <!-- Filtros de periodo + exportar -->
+  <div class="top-bar">
+    <mat-button-toggle-group [(ngModel)]="periodoActivo" class="periodo-toggle">
+      <mat-button-toggle value="semana">Semana</mat-button-toggle>
+      <mat-button-toggle value="mes">Mes</mat-button-toggle>
+      <mat-button-toggle value="trimestre">Trimestre</mat-button-toggle>
+      <mat-button-toggle value="año">Año</mat-button-toggle>
+    </mat-button-toggle-group>
+
+    <div class="export-btns">
+      <button mat-stroked-button class="btn-pdf">
+        <mat-icon>picture_as_pdf</mat-icon>
+        Exportar PDF
+      </button>
+      <button mat-stroked-button class="btn-excel">
+        <mat-icon>table_chart</mat-icon>
+        Exportar Excel
+      </button>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <mat-tab-group class="report-tabs" animationDuration="0ms">
+
+    <!-- TAB GENERAL -->
+    <mat-tab label="General">
+
+      <!-- KPIs -->
+      <div class="kpi-grid">
+        <mat-card class="kpi-card">
+          <mat-card-content>
+            <p class="kpi-label">CITAS TOTALES</p>
+            <h2 class="kpi-value blue">360</h2>
+            <p class="kpi-sub">Últimos 6 meses</p>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="kpi-card">
+          <mat-card-content>
+            <p class="kpi-label">PACIENTES NUEVOS</p>
+            <h2 class="kpi-value green">291</h2>
+            <p class="kpi-sub">Últ. 6 meses</p>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="kpi-card">
+          <mat-card-content>
+            <p class="kpi-label">TASA CANCELACIÓN</p>
+            <h2 class="kpi-value orange">8.3%</h2>
+            <p class="kpi-sub">Promedio mensual</p>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="kpi-card">
+          <mat-card-content>
+            <p class="kpi-label">INGRESO TOTAL</p>
+            <h2 class="kpi-value purple">S/ 108,000</h2>
+            <p class="kpi-sub">Estimado 6 meses</p>
+          </mat-card-content>
+        </mat-card>
+      </div>
+
+      <!-- Gráficas fila 1 -->
+      <div class="charts-row">
+
+        <mat-card class="chart-card">
+          <mat-card-content>
+            <h3 class="chart-title">Citas por mes</h3>
+            <p class="chart-sub">Total vs. canceladas</p>
+            <canvas id="citasChart"></canvas>
+            <div class="chart-legend">
+              <span class="legend-dot blue-dot"></span> Citas totales
+              <span class="legend-dot red-dot"></span> Canceladas
+            </div>
+          </mat-card-content>
+        </mat-card>
+
+        <mat-card class="chart-card">
+          <mat-card-content>
+            <h3 class="chart-title">Tendencia de ingresos</h3>
+            <p class="chart-sub">Ingresos estimados (S/)</p>
+            <canvas id="ingresosChart"></canvas>
+          </mat-card-content>
+        </mat-card>
+
+      </div>
+
+      <!-- Gráfica fila 2 -->
+      <mat-card class="chart-card full-width">
+        <mat-card-content>
+          <h3 class="chart-title">Pacientes vs. citas atendidas</h3>
+          <p class="chart-sub">Comparativa mensual</p>
+          <canvas id="pacientesChart"></canvas>
+        </mat-card-content>
+      </mat-card>
+
+    </mat-tab>
+
+    <mat-tab label="Por médico">
+      <div class="empty-tab">
+        <mat-icon>person_search</mat-icon>
+        <p>Reporte por médico próximamente</p>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Por especialidad">
+      <div class="empty-tab">
+        <mat-icon>medical_services</mat-icon>
+        <p>Reporte por especialidad próximamente</p>
+      </div>
+    </mat-tab>
+
+  </mat-tab-group>
+
+</div>

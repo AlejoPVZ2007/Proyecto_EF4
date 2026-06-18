@@ -1,137 +1,69 @@
 <app-navbar></app-navbar>
 
 <div class="content">
-
-    <div class="toolbar">
-
-    <mat-form-field appearance="outline">
-        <mat-label>Buscar médico</mat-label>
-        <input matInput placeholder="Nombre o especialidad">
-        <mat-icon matSuffix>search</mat-icon>
-    </mat-form-field>
-
-    <button mat-raised-button color="primary">
-        <mat-icon>add</mat-icon>
-        Nuevo Médico
-    </button>
-
+    <div class="page-header">
+        <h1>Médicos</h1>
+        <button mat-raised-button color="primary">
+            <mat-icon>add</mat-icon>
+            Nuevo médico
+        </button>
     </div>
 
-    <div class="stats-grid">
+    <div class="cards-grid">
+        <mat-card
+            *ngFor="let medico of medicos"
+            class="doctor-card">
+            <div class="top-line" [ngClass]="medico.color"></div>
 
-    <mat-card class="stat-card">
-        <mat-card-content>
-        <h2>12</h2>
-        <span>Médicos Activos</span>
-        </mat-card-content>
-    </mat-card>
+            <mat-card-content>
+                <div class="doctor-header">
+                    <div class="avatar" [ngClass]="medico.color">
+                        {{ medico.inicial }}
+                    </div>
 
-    <mat-card class="stat-card">
-        <mat-card-content>
-        <h2>8</h2>
-        <span>Especialidades</span>
-        </mat-card-content>
-    </mat-card>
+                    <div>
+                        <h3>{{ medico.nombre }}</h3>
+                        <span>{{ medico.cmp }}</span>
+                    </div>
 
-    <mat-card class="stat-card">
-        <mat-card-content>
-        <h2>145</h2>
-        <span>Citas esta semana</span>
-        </mat-card-content>
-    </mat-card>
+                    <span class="status">
+                        {{ medico.estado }}
+                    </span>
+                </div>
 
-    <mat-card class="stat-card">
-        <mat-card-content>
-        <h2>96%</h2>
-        <span>Disponibilidad</span>
-        </mat-card-content>
-    </mat-card>
+                <div class="specialty">
+                    {{ medico.especialidad }}
+                </div>
 
+                <div class="schedule">
+                    <mat-icon>schedule</mat-icon>
+                    {{ medico.horario }}
+                </div>
+
+                <div class="days">
+                    <span *ngFor="let dia of medico.dias">
+                        {{ dia }}
+                    </span>
+                </div>
+
+                <hr>
+
+                <div class="footer">
+                    <small>
+                        {{ medico.citas }} citas atendidas
+                    </small>
+
+                    <div>
+                        <button mat-button>
+                            Editar
+                        </button>
+
+                        <button mat-button color="warn">
+                            Eliminar
+                        </button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
     </div>
-
-    <mat-card>
-
-    <mat-card-header>
-        <mat-card-title>Listado de Médicos</mat-card-title>
-    </mat-card-header>
-
-    <mat-card-content>
-
-        <table mat-table [dataSource]="medicos">
-
-        <!-- Nombre -->
-        <ng-container matColumnDef="nombre">
-            <th mat-header-cell *matHeaderCellDef>Nombre</th>
-            <td mat-cell *matCellDef="let m">
-            {{m.nombre}}
-            </td>
-        </ng-container>
-
-        <!-- Especialidad -->
-        <ng-container matColumnDef="especialidad">
-            <th mat-header-cell *matHeaderCellDef>Especialidad</th>
-            <td mat-cell *matCellDef="let m">
-            {{m.especialidad}}
-            </td>
-        </ng-container>
-
-        <!-- CMP -->
-        <ng-container matColumnDef="cmp">
-            <th mat-header-cell *matHeaderCellDef>CMP</th>
-            <td mat-cell *matCellDef="let m">
-            {{m.cmp}}
-            </td>
-        </ng-container>
-
-        <!-- Teléfono -->
-        <ng-container matColumnDef="telefono">
-            <th mat-header-cell *matHeaderCellDef>Teléfono</th>
-            <td mat-cell *matCellDef="let m">
-            {{m.telefono}}
-            </td>
-        </ng-container>
-
-        <!-- Estado -->
-        <ng-container matColumnDef="estado">
-            <th mat-header-cell *matHeaderCellDef>Estado</th>
-            <td mat-cell *matCellDef="let m">
-
-            <span
-                class="status"
-                [class.active]="m.estado === 'Activo'">
-
-                {{m.estado}}
-
-            </span>
-
-            </td>
-        </ng-container>
-
-        <!-- Acciones -->
-        <ng-container matColumnDef="acciones">
-            <th mat-header-cell *matHeaderCellDef>Acciones</th>
-
-            <td mat-cell *matCellDef="let m">
-
-            <button mat-icon-button>
-                <mat-icon>visibility</mat-icon>
-            </button>
-
-            <button mat-icon-button color="primary">
-                <mat-icon>edit</mat-icon>
-            </button>
-
-            <button mat-icon-button color="warn">
-                <mat-icon>delete</mat-icon>
-            </button>
-
-            </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-
-        </table>
-    </mat-card-content>
-</mat-card>
 </div>

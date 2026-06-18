@@ -1,0 +1,114 @@
+.content{
+    margin-left:280px;
+    padding:24px;
+    background:#f5f7fb;
+    min-height:100vh;
+}
+
+.toolbar{
+    display:flex;
+    gap:16px;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.stats{
+    display:flex;
+    gap:24px;
+    margin-bottom:24px;
+}
+
+.date-header{
+    background:#1e40af;
+    color:white;
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:20px;
+    font-size:13px;
+    font-weight:600;
+    margin-bottom:16px;
+}
+
+.appointment-card{
+    background:white;
+    border-radius:14px;
+    display:grid;
+    grid-template-columns:
+        6px
+        80px
+        1.5fr
+        1.2fr
+        100px
+        120px
+        auto;
+
+    align-items:center;
+
+    margin-bottom:12px;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 2px 6px rgba(0,0,0,.05);
+}
+
+.color-bar{
+    height:100%;
+}
+
+.green{
+    background:#22c55e;
+}
+
+.orange{
+    background:#f59e0b;
+}
+
+.blue{
+    background:#3b82f6;
+}
+
+.red{
+    background:#ef4444;
+}
+
+.hour{
+    font-size:22px;
+    font-weight:700;
+    padding:24px;
+}
+
+.patient,
+.doctor{
+    padding:16px;
+}
+
+.patient h4,
+.doctor h4{
+    margin:0;
+}
+
+.patient span,
+.doctor span{
+    color:#64748b;
+    font-size:13px;
+}
+
+.code{
+    color:#94a3b8;
+}
+
+.status{
+    color:white;
+    text-align:center;
+    padding:8px;
+    border-radius:20px;
+    width:100px;
+    justify-self:center;
+}
+
+.actions{
+    display:flex;
+    gap:8px;
+    padding-right:16px;
+}

@@ -1,1 +1,84 @@
-<p>citas works!</p>
+<app-navbar></app-navbar>
+
+<div class="content">
+    <div class="toolbar">
+        <mat-form-field appearance="outline">
+            <input
+                matInput
+                placeholder="Buscar paciente, médico o motivo">
+        </mat-form-field>
+
+        <button mat-raised-button color="primary">
+            <mat-icon>add</mat-icon>
+            Nueva cita
+        </button>
+    </div>
+
+    <div class="stats">
+        <span>
+            <strong>8</strong> Total citas
+        </span>
+        <span class="blue">
+            <strong>4</strong> Hoy
+        </span>
+        <span class="green">
+            <strong>3</strong> Confirmadas
+        </span>
+        <span class="orange">
+            <strong>3</strong> Pendientes
+        </span>
+        <span class="red">
+            <strong>1</strong> Canceladas
+        </span>
+    </div>
+
+    <div class="date-header">
+        HOY — martes, 9 de junio de 2026
+    </div>
+
+    <div
+        *ngFor="let cita of citasHoy"
+        class="appointment-card">
+
+        <div
+            class="color-bar"
+            [ngClass]="cita.color">
+        </div>
+
+        <div class="hour">
+            {{ cita.hora }}
+        </div>
+
+        <div class="patient">
+            <h4>{{ cita.paciente }}</h4>
+            <span>{{ cita.motivo }}</span>
+        </div>
+
+        <div class="doctor">
+            <h4>{{ cita.medico }}</h4>
+            <span>{{ cita.especialidad }}</span>
+        </div>
+
+        <div class="code">
+            {{ cita.codigo }}
+        </div>
+
+        <div
+            class="status"
+            [ngClass]="cita.color">
+            {{ cita.estado }}
+        </div>
+
+        <div class="actions">
+            <button mat-button>
+                Ver
+            </button>
+            <button mat-button color="primary">
+                Editar
+            </button>
+            <button mat-button color="warn">
+                Cancelar
+            </button>
+        </div>
+    </div>
+</div>

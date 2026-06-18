@@ -1,34 +1,100 @@
-.content {
-    margin-left: 280px;
-    padding: 24px;
-    background: #f5f7fb;
-    min-height: 100vh;
-}
-.toolbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
+.content{
+    margin-left:280px;
+    padding:24px;
+    background:#f5f7fb;
+    min-height:100vh;
 }
 
-.status {
-  padding: 4px 12px;
-  border-radius: 20px;
-  background: #fee2e2;
-  color: #dc2626;
-  font-size: 12px;
-  font-weight: 600;
+.page-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:24px;
 }
 
-.status.active {
-  background: #dcfce7;
-  color: #15803d;
+.cards-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(380px,1fr));
+    gap:24px;
 }
 
-table {
-  width: 100%;
+.doctor-card{
+    position:relative;
+    border-radius:16px;
+    overflow:hidden;
 }
 
-.mat-mdc-card {
-  border-radius: 16px;
+.top-line{
+    height:5px;
+}
+
+.blue{ background:#3b82f6; }
+.red{ background:#ef4444; }
+.green{ background:#10b981; }
+.orange{ background:#f59e0b; }
+.purple{ background:#8b5cf6; }
+
+.doctor-header{
+    display:flex;
+    align-items:center;
+    gap:16px;
+}
+
+.avatar{
+    width:48px;
+    height:48px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:white;
+    font-weight:700;
+    font-size:18px;
+}
+
+.status{
+    margin-left:auto;
+    background:#dcfce7;
+    color:#166534;
+    padding:4px 10px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+.specialty{
+    margin-top:16px;
+    display:inline-block;
+    background:#eff6ff;
+    color:#2563eb;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+}
+
+.schedule{
+    margin-top:16px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#64748b;
+}
+
+.days{
+    display:flex;
+    gap:8px;
+    margin-top:12px;
+}
+
+.days span{
+    background:#f1f5f9;
+    padding:4px 10px;
+    border-radius:8px;
+    font-size:12px;
+}
+
+.footer{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:16px;
 }

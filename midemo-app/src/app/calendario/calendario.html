@@ -1,1 +1,77 @@
-<p>calendario works!</p>
+<app-navbar></app-navbar>
+
+<div class="calendar-container">
+  <div class="calendar-sidebar">
+
+    <div class="month-header">
+      <button class="nav-btn">‹</button>
+      <div class="month-info">
+        <h3>Junio</h3>
+        <span>2026</span>
+      </div>
+      <button class="nav-btn">›</button>
+    </div>
+
+    <div class="weekdays">
+      <span>Dom</span>
+      <span>Lun</span>
+      <span>Mar</span>
+      <span>Mié</span>
+      <span>Jue</span>
+      <span>Vie</span>
+      <span>Sáb</span>
+    </div>
+
+    <div class="calendar-grid">
+      <div
+        *ngFor="let d of dias"
+        class="day"
+        [class.selected]="selectedDay === d.dia"
+        (click)="seleccionarDia(d.dia)">
+        <span>{{ d.dia }}</span>
+        <div class="event-dots" *ngIf="d.eventos.length > 0">
+          <span *ngFor="let color of d.eventos" class="dot" [ngClass]="color"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="legend">
+      <h4>ESTADOS</h4>
+      <div class="legend-item"><span class="dot green"></span> Confirmada</div>
+      <div class="legend-item"><span class="dot orange"></span> Pendiente</div>
+      <div class="legend-item"><span class="dot blue"></span> Reprogramada</div>
+      <div class="legend-item"><span class="dot red"></span> Cancelada</div>
+    </div>
+  </div>
+
+  <div class="appointments-panel">
+    <div class="appointments-header">
+      <div>
+        <h2>martes, {{ selectedDay }} de junio de 2026</h2>
+        <span>{{ citasSeleccionadas.length }} citas programadas</span>
+      </div>
+      <span class="today-label">Hoy</span>
+    </div>
+
+    <div *ngFor="let cita of citasSeleccionadas" class="appointment-card">
+      <div class="card-inner">
+        <div class="left-border" [ngClass]="cita.color"></div>
+        <div class="appointment-content">
+          <div class="appointment-time">{{ cita.hora }}</div>
+          <div class="appointment-info">
+            <h4>{{ cita.paciente }}</h4>
+            <p>{{ cita.medico }}</p>
+            <div class="appointment-footer">
+              <span class="status-badge" [ngClass]="cita.color">{{ cita.estado }}</span>
+              <small>{{ cita.codigo }}</small>
+            </div>
+          </div>
+          <div class="appointment-actions">
+            <button class="btn-view">Ver</button>
+            <button class="btn-edit">Editar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
